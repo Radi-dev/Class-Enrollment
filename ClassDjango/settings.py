@@ -156,9 +156,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build/static")
-]
+
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "build/static")
+# ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -173,3 +175,6 @@ REST_FRAMEWORK = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
