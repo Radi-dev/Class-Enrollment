@@ -44,7 +44,7 @@ class Applicant(models.Model):
 
 class Tutor(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True)
-    about = models.CharField(null=True, blank=True)
+    about = models.CharField(max_length=1000, null=True, blank=True)
     photo = models.ImageField(upload_to='profile_pics',
                               blank=True, null=True)
     thumb_photo = models.ImageField(upload_to='profile_pics_thumbs',
