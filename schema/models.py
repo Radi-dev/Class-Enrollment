@@ -45,9 +45,30 @@ class Course(models.Model):
     description = models.TextField(null=True, blank=True)
     tutor = models.ForeignKey(
         Tutor, on_delete=models.DO_NOTHING,  null=True, blank=True)
+    photo = models.ImageField(upload_to='profile_pics',
+                              blank=True, null=True)
+    thumb_photo = models.ImageField(upload_to='profile_pics_thumbs',
+                                    blank=True, null=True)
 
     def __str__(self):
         return f'{self.title}'
+
+    def save(self, *args, **kwargs):
+        old_photo = self.photo.path if self.photo else None
+        super().save(*args, **kwargs)
+        try:
+            if old_photo != self.photo.path:
+                with open(self.photo.path, 'rb') as f:
+                    self.thumb_photo = SimpleUploadedFile(
+                        self.photo.name, f.read())
+                super().save()
+                img = Image.open(self.thumb_photo.path)
+                if img.height > 200 or img.width > 200:
+                    output_size = (200, 200)
+                    img.thumbnail(output_size)
+                    img.save(self.thumb_photo.path)
+        except:
+            pass
 
 
 class Outline(models.Model):

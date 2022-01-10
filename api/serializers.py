@@ -16,11 +16,11 @@ class OutlineSerializer(serializers.ModelSerializer):
 
 class CourseSerializer(serializers.ModelSerializer):
     tutor = TutorSerializer(read_only=True)
-    outline = OutlineSerializer(many=True, read_only=True, required=False)
+   # outline = OutlineSerializer(many=True, read_only=True, required=False)
 
     class Meta:
         model = Course
-        fields = ('title', 'description', 'tutor', 'outline')
+        fields = '__all__'
 
 
 class ApplicantSerializer(serializers.ModelSerializer):
