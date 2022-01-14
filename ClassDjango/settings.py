@@ -68,14 +68,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://localhost:8000',
     'http://127.0.0.1:3000',
     'http://127.0.0.1:8000',
     'http://0.0.0.0:8000',
-    'http://192.168.234.125:8000',
+    'http://192.168.121.125:3000',
 )
+#CORS_ORIGIN_ALLOW_ALL = True
 
 
 ROOT_URLCONF = 'ClassDjango.urls'

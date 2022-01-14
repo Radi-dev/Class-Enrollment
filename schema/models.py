@@ -49,6 +49,8 @@ class Course(models.Model):
                               blank=True, null=True)
     thumb_photo = models.ImageField(upload_to='profile_pics_thumbs',
                                     blank=True, null=True)
+    intro_video_embed_id = models.CharField(
+        max_length=25, null=True, blank=True)
 
     def __str__(self):
         return f'{self.title}'

@@ -1,0 +1,1 @@
+pip install django pillow djangorestframework django-cors-headers dj-rest-auth django-allauth pymysql
